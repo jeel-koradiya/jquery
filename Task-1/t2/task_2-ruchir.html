@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./script.js"></script>
+    <title>Task 2</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      button{
+        width: 100%;
+        text-align: left;
+        background-color: cadetblue;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div style="border: 1px solid #000;">
+      <button class="flip">
+        <i class="fa-solid fa-circle-down"></i> Section 1
+      </button>
+      <p class="panel">Hello world! 1</p>
+    </div>
+    <div style="border: 1px solid #000;">
+      <button class="flip">
+        <i class="fa-solid fa-circle-right"></i> Section 2
+      </button>
+      <p class="panel">Hello world! 2</p>
+    </div>
+    <div style="border: 1px solid #000;">
+      <button class="flip">
+        <i class="fa-solid fa-circle-right"></i> Section 3
+      </button>
+      <p class="panel">Hello world! 3</p>
+    </div>
+    <div style="border: 1px solid #000;">
+      <button class="flip">
+        <i class="fa-solid fa-circle-right"></i> Section 4
+      </button>
+      <p class="panel">Hello world! 4</p>
+    </div>
+    <script>
+      $(document).ready(function () {
+        // $(".flip").find('i').removeClass('fa-circle-right').addClass('fa-circle-down');
+        $('.panel').hide().first().show();
+        $('.flip').click(function(){
+          $('.panel').hide();
+          $(this).find('i').removeClass('fa-circle-right').addClass('fa-circle-down');
+          $(this).parent().siblings().find('.flip i').removeClass('fa-circle-down').addClass('fa-circle-right');
+          $(this).siblings('p').slideToggle();
+        });
+      });
+    </script>
+  </body>
+</html>

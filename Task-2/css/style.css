@@ -1,0 +1,85 @@
+
+      .abc{
+        padding-top: 20px;
+      }
+
+      .resume,
+      .restart,
+      .pauseing {
+        display: none;
+      }
+
+      table{
+        border-collapse: collapse;
+      }
+
+      button{
+        padding: 5px 8px;
+        margin: 0 10px;
+      }
+
+      .showlabel{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-size: 23px;
+        padding-bottom: 25px;
+      }
+
+      .stop{
+        border: 1px solid red;
+        border-radius: 5px;
+        background-color: rgb(241, 194, 194);
+      }
+
+      .start,.resume,.restart{
+        border: 1px solid green;
+        border-radius: 5px;
+        background-color: rgb(194, 241, 202);
+      }
+
+      .reset{
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: rgb(255, 255, 255);
+      }
+
+     
+
+      .pause{
+        border: 1px solid blue;
+        border-radius: 5px;
+        background-color: rgb(200, 200, 241);
+      }
+
+
+      th,td{
+        padding: 10px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .container {
+        border: 1px solid black;
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        padding: 50px;
+      }
+
+      input.getvalue {
+    border: 2px solid black;
+    border-radius: 5px;
+    color: white;
+    margin-bottom: 20px;
+    padding: 6px;
+    background-color: black;
+    font-weight: 800;
+}
+
+
+      body{
+        margin-top: 100px;
+      }
