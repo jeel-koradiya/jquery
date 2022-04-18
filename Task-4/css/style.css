@@ -1,0 +1,26 @@
+h1{
+    text-align: center;
+}
+
+.step123,.allform,.allbutton{
+    text-align: center;
+}
+
+.allform{
+    padding-top: 25px;
+}
+
+label,input,select,input[type="radio"]{
+    
+    margin-bottom: 10px;
+}
+
+.allbutton{
+    
+    margin-bottom: 20px;
+}
+
+table{
+    width: 100%;
+    text-align: center;
+}

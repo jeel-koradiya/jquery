@@ -1,0 +1,103 @@
+<!-- task-4 new-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wizard</title>
+  <script src="./js/script.js"></script>
+  <script src="./js/jquery.js"></script>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <h1>Wizard Form</h1>
+
+  <div class="step123">
+    <button class="button_nav">STEP 1</button>
+    <button class="button_nav">STEP 2</button>
+    <button class="button_nav">STEP 3</button>
+  </div>
+
+  <div class="allform">
+    <form action="#" class="formreset">
+      <div class="content">
+        <label for="fname">First name:</label>
+        <input class="setedittextfname" type="text" id="fname" name="fname" placeholder="Enter First Name" /><br />
+        <input type="hidden" id="index" class="index" value="" />
+
+        <label for="lname">Last name:</label>
+        <input class="setedittextlname" type="text" id="lname" name="lname" placeholder="Enter Last Name" /><br /><br />
+
+        <label>Gender:</label>
+        <input type="radio" class="radio" id="female" name="gender" value="female" />
+        <label for="female">Female</label>
+        <input class="radio" type="radio" id="male" name="gender" value="male" />
+        <label for="male">Male</label><br />
+      </div>
+
+      <div class="content">
+        <label for="email">Email Id:</label>
+        <input class="setedittextemail" type="text" id="email" name="email" placeholder="Enter Email" /><br />
+
+        <label for="contact">Contact No:</label>
+        <input class="setedittextcontact" type="text" id="contact" name="contact"
+          placeholder="Enter Contact No" /><br />
+
+        <label for="dob">Date of Birth:</label>
+        <input class="setedittextdob" type="text" id="dob" name="dob" placeholder="Enter Date of Birth" /><br /><br />
+      </div>
+
+      <div class="content">
+        <label for="sports">Favourite Sports:</label>
+        <select name="sports" id="sports">
+          <option value="cricket" selected>Cricket</option>
+          <option value="football">Football</option>
+          <option value="chess">Chess</option>
+        </select><br />
+
+        <label for="aboutyourself">About YourSelf:</label>
+        <textarea id="aboutyourself" name="aboutyourself" rows="1" cols="20"
+          placeholder="Tell us something about you"></textarea>
+        <br /><br />
+
+        <label for="terms">Terms & Condations</label>
+        <input type="checkbox" id="terms" name="terms" />
+
+        <br /><br />
+      </div>
+    </form>
+  </div>
+
+  <div class="allbutton">
+    <button class="previous" type="button">Previous</button>
+    <button class="next" type="button">Save & Next</button>
+    <button class="submit" type="button">Submit</button>
+    <button class="update" type="button">Update</button>
+    <button class="cancel" type="button">Cancel</button>
+  </div>
+
+  <div class="showdatatable">
+    <table border="1" class="row">
+      <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>Email Id</th>
+        <th>Contact No</th>
+        <th>DOB</th>
+        <th>Sports</th>
+        <th>About You</th>
+        <th>T & C</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>
