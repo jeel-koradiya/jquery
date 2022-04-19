@@ -1,8 +1,16 @@
 // script task 4 New
 
 $(document).ready(function () {  
+
+  $('#contact').mask('0000000000');
+  $('#hour').mask('00');
+  $('#zipcode').mask('000-000');
+  $('#ipaddress').mask('000.000.000.000');
+  $('#money').mask('00,00,00,00,00,000',{reverse: true});
+
+
   var bool = false;
-  var index, indexbutton,x, length,no,ffname,llname,ggender,eemail,ccontact,ddob,ssports,aaboutyourself,tterms;
+  var index, indexbutton,x, length,no,ffname,llname,ggender,eemail,ccontact,ddob,hhour,mmoney,zzipcode,iipaddress,ssports,aaboutyourself,tterms;
 
   $(".content").hide().first().show();
   $("button.previous, button.submit,.update,.cancel").hide();
@@ -19,6 +27,8 @@ $(document).ready(function () {
           }
         }
       }
+
+
     
     //form data get
     function formdateget(){
@@ -29,12 +39,16 @@ $(document).ready(function () {
         eemail = $("#email").val();
         ccontact = $("#contact").val();
         ddob = $("#dob").val();
+        hhour = $("#hour").val();
+        mmoney = $("#money").val();
+        zzipcode = $("#zipcode").val();
+        iipaddress = $("#ipaddress").val();
         ssports = $("select").children("option:selected").val();
         aaboutyourself = $("#aboutyourself").val();
         tterms = $("input[type='checkbox']:checked").val();  
-
-      
     }
+
+    
 
   //   -----------button nav------------
   $(".button_nav").click(function () {
@@ -61,6 +75,11 @@ $(document).ready(function () {
   });
 
 //   -----------next button------------
+
+
+
+
+
   $(".next").click(function () {
     length = $(".content").length;
     $(".content").hide();
@@ -99,7 +118,7 @@ $(document).ready(function () {
 
   //   -----------submit button------------
 
-  $(".submit").click(function () {
+  $(".submit").click(function (e) {
     //data get from form
     formdateget();
 
@@ -109,6 +128,10 @@ $(document).ready(function () {
       var tterms = "Not Accept";
       }
 
+    console.log($("#formvalidation").valid());
+
+    if($("#formvalidation").valid() == true){
+
     $(".row").append(`<tr class="removerow"><td class="no"> ${no} </td>,
         <td class="efname"> ${ffname} </td>,
         <td class="elname"> ${llname} </td>,
@@ -116,19 +139,37 @@ $(document).ready(function () {
         <td class="eeemail"> ${eemail} </td>,
         <td class="econtact"> ${ccontact} </td>,
         <td class="edob"> ${ddob} </td>,
+        <td class="ehour"> ${hhour} </td>,
+        <td class="emoney"> ${mmoney} </td>,
+        <td class="ezipcode"> ${zzipcode} </td>,
+        <td class="eipaddress"> ${iipaddress} </td>,
         <td class="esports">${ssports}</td>,
         <td class="eaboutyourself"> ${aaboutyourself} </td>,
         <td class="eterms"> ${tterms} </td>,
         <td> <button class="edit">Edit</button> </td>,
         <td> <button class="deleterow">Delete</button> </td></tr>`);
+        
+    // $(".content").hide().first().show();
+    // $(".content").hide().eq($(indexbutton).index()).show();
+    // $(".previous,.submit").hide();
+    // $(".next").show();
+      
+
     //clear text box
     $('.formreset')[0]. reset();
+    e.preventDefault();
+    }
+    else{
+      alert("Please Fill tha all Fields")
+    }
   });
 
   //   -----------edit button------------
   $(document).on("click", ".edit", function () {
     bool = true;
     length = $(".content").length;
+
+    $(".deleterow").attr("disabled", true);
 
     var eindex = $(".edit").index(this);
     var index = $(".no").eq(eindex).text();
@@ -138,6 +179,10 @@ $(document).ready(function () {
     var eeemail = $(".eeemail").eq(eindex).text();
     var econtact = $(".econtact").eq(eindex).text();
     var edob = $(".edob").eq(eindex).text();
+    var ehour = $(".ehour").eq(eindex).text();
+    var emoney = $(".emoney").eq(eindex).text();
+    var ezipcode = $(".ezipcode").eq(eindex).text();
+    var eipaddress = $(".eipaddress").eq(eindex).text();
     var esports = $(".esports").eq(eindex).text();
     var eaboutyourself = $(".eaboutyourself").eq(eindex).text();
     var eterms = $(".eterms").eq(eindex).text();
@@ -150,6 +195,11 @@ $(document).ready(function () {
     $("input.setedittextemail").val(eeemail);
     $("input.setedittextcontact").val(econtact);
     $("input.setedittextdob").val(edob);
+
+    $("input.setedittexthour").val(ehour);
+    $("input.setedittextmoney").val(emoney);
+    $("input.setedittextzipcode").val(ezipcode);
+    $("input.setedittextipaddress").val(eipaddress);
 
     if (esports == "cricket") {
       $("option[value=cricket]").prop("selected", true);
@@ -174,6 +224,9 @@ $(document).ready(function () {
     $(".update,.cancel").hide();
     $(".submit").show();
     bool = false;
+
+    
+    $(".deleterow").attr("disabled", false);
     
     //function for button set click edit buuton click event
     buttonset();
@@ -194,6 +247,10 @@ $(document).ready(function () {
          <td class="eeemail"> ${eemail} </td>,
          <td class="econtact"> ${ccontact} </td>,
          <td class="edob"> ${ddob} </td>,
+         <td class="ehour"> ${hhour} </td>,
+         <td class="emoney"> ${mmoney} </td>,
+         <td class="ezipcode"> ${zzipcode} </td>,
+         <td class="eipaddress"> ${iipaddress} </td>,
          <td class="esports"> ${ssports} </td>,
          <td class="eaboutyourself"> ${aaboutyourself} </td>,
          <td class="eterms"> ${tterms} </td>,
@@ -214,6 +271,9 @@ $(document).ready(function () {
     bool = false;
     //function for button set click edit buuton click event
     buttonset();
+
+    
+    $(".deleterow").attr("disabled", false);
     //clear text box
     $('.formreset')[0]. reset();
     $(".update,.cancel").hide();
@@ -230,3 +290,5 @@ $(document).ready(function () {
   });
 
 });
+
+

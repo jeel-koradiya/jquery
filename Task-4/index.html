@@ -7,9 +7,23 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Wizard</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
   <script src="./js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.8/jquery.mask.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  <!-- <script src="./js/masking/src/jquery.mask.js"></script>
+  <script src="./js/masking/dist/jquery.mask.js"></script>
+  <script src="./js/masking/dist/jquery.mask.min.js"></script> -->
+  <script src="./js/validationrules.js"></script>
   <script src="./js/jquery.js"></script>
+
+
+
+
+
   <link rel="stylesheet" href="./css/style.css" />
 </head>
 
@@ -23,7 +37,7 @@
   </div>
 
   <div class="allform">
-    <form action="#" class="formreset">
+    <form action="#" class="formreset" id="formvalidation">
       <div class="content">
         <label for="fname">First name:</label>
         <input class="setedittextfname" type="text" id="fname" name="fname" placeholder="Enter First Name" /><br />
@@ -48,12 +62,27 @@
           placeholder="Enter Contact No" /><br />
 
         <label for="dob">Date of Birth:</label>
-        <input class="setedittextdob" type="text" id="dob" name="dob" placeholder="Enter Date of Birth" /><br /><br />
+        <input class="setedittextdob" type="text" id="dob" name="dob" placeholder="Enter Date of Birth" /><br />
+
+        <label for="hour">For How Many Hours?:</label>
+        <input class="setedittexthour" type="text" id="hour" name="hour" placeholder="hh" /><br />
+
+        <label for="money">Money:</label>
+        <input class="setedittextmoney" type="text" id="money" name="money" placeholder="Money" /><br />
+
+        <label for="zipcode">Zip-code:</label>
+        <input class="setedittextzipcode" type="text" id="zipcode" name="zipcode" placeholder="__-__" /><br />
+
+        <label for="ipaddress">Ip-Address:</label>
+        <input class="setedittextipaddress" type="text" id="ipaddress" name="ipaddress"
+          placeholder="___.___.___.___" /><br />
+
+
       </div>
 
       <div class="content">
         <label for="sports">Favourite Sports:</label>
-        <select name="sports" id="sports">
+        <select name="sports" id="sports" name="select">
           <option value="cricket" selected>Cricket</option>
           <option value="football">Football</option>
           <option value="chess">Chess</option>
@@ -66,20 +95,20 @@
 
         <label for="terms">Terms & Condations</label>
         <input type="checkbox" id="terms" name="terms" />
-
         <br /><br />
       </div>
+
+     </div>
+
+      <div class="allbutton">
+        <button class="previous" type="button">Previous</button>
+        <button class="next" type="button">Save & Next</button>
+        <button class="submit" type="submit">Submit</button>
+        <button class="update" type="button">Update</button>
+        <button class="cancel" type="button">Cancel</button>
+      </div>
+
     </form>
-  </div>
-
-  <div class="allbutton">
-    <button class="previous" type="button">Previous</button>
-    <button class="next" type="button">Save & Next</button>
-    <button class="submit" type="button">Submit</button>
-    <button class="update" type="button">Update</button>
-    <button class="cancel" type="button">Cancel</button>
-  </div>
-
   <div class="showdatatable">
     <table border="1" class="row">
       <tr>
@@ -90,6 +119,10 @@
         <th>Email Id</th>
         <th>Contact No</th>
         <th>DOB</th>
+        <th>Hours</th>
+        <th>Money</th>
+        <th>Zip-code</th>
+        <th>Ip-address</th>
         <th>Sports</th>
         <th>About You</th>
         <th>T & C</th>
