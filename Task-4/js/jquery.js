@@ -1,17 +1,13 @@
 // script task 4 New
 
-$(document).ready(function () {
-  var index, indexbutton;
-  var x, length;
-  bool = false;
-
-  var no,ffname,llname,ggender,eemail,ccontact,ddob,ssports,aaboutyourself,tterms;
+$(document).ready(function () {  
+  var bool = false;
+  var index, indexbutton,x, length,no,ffname,llname,ggender,eemail,ccontact,ddob,ssports,aaboutyourself,tterms;
 
   $(".content").hide().first().show();
   $("button.previous, button.submit,.update,.cancel").hide();
 
     //click on edit butten show hide
-
     function buttonset() {
         if (bool == true) {
           if (length == x + 1) {
@@ -35,15 +31,13 @@ $(document).ready(function () {
         ddob = $("#dob").val();
         ssports = $("select").children("option:selected").val();
         aaboutyourself = $("#aboutyourself").val();
-        tterms = $("input[type='checkbox']:checked").val();
+        tterms = $("input[type='checkbox']:checked").val();  
 
-        
+      
     }
 
   //   -----------button nav------------
-
   $(".button_nav").click(function () {
-
     indexbutton = $(this).index();
     $(".content").hide().eq($(this).index()).show();
 
@@ -67,7 +61,6 @@ $(document).ready(function () {
   });
 
 //   -----------next button------------
-
   $(".next").click(function () {
     length = $(".content").length;
     $(".content").hide();
@@ -84,12 +77,11 @@ $(document).ready(function () {
     $(".content").eq(x).show();
     $(".content").not($(".content").eq(x)).hide();
 
-     //function for button set click edit buuton click event
+    //function for button set click edit buuton click event
     buttonset();
   });
 
   //   -----------previous button------------
-
   $(".previous").click(function () {
     $(".content").hide();
     x--;
@@ -108,14 +100,14 @@ $(document).ready(function () {
   //   -----------submit button------------
 
   $(".submit").click(function () {
-    
+    //data get from form
     formdateget();
 
     if ($("#terms").is(":checked")) {
-        var tterms = "Accept";
-        } else {
-        var tterms = "Not Accept";
-        }
+      var tterms = "Accept";
+      } else {
+      var tterms = "Not Accept";
+      }
 
     $(".row").append(`<tr class="removerow"><td class="no"> ${no} </td>,
         <td class="efname"> ${ffname} </td>,
@@ -129,14 +121,11 @@ $(document).ready(function () {
         <td class="eterms"> ${tterms} </td>,
         <td> <button class="edit">Edit</button> </td>,
         <td> <button class="deleterow">Delete</button> </td></tr>`);
-
     //clear text box
     $('.formreset')[0]. reset();
   });
 
-
   //   -----------edit button------------
-
   $(document).on("click", ".edit", function () {
     bool = true;
     length = $(".content").length;
@@ -157,9 +146,7 @@ $(document).ready(function () {
 
     $("input.setedittextfname").val(efname);
     $("input.setedittextlname").val(elname);
-    egender == " male "
-      ? $("#male").prop("checked", true)
-      : $("#female").prop("checked", true);
+    egender == " male " ? $("#male").prop("checked", true) : $("#female").prop("checked", true);
     $("input.setedittextemail").val(eeemail);
     $("input.setedittextcontact").val(econtact);
     $("input.setedittextdob").val(edob);
@@ -171,12 +158,9 @@ $(document).ready(function () {
     } else {
       $("option[value=chess]").prop("selected", true);
     }
-
     $("#aboutyourself").val(eaboutyourself);
-
     if (eterms == " Accept ") {
       $("#terms").prop("checked", true);
-      console.log("if");
     } else {
       $("#terms").prop("checked", false);
     }
@@ -186,24 +170,23 @@ $(document).ready(function () {
   });
 
   //   -----------update button------------
-
     $(".update").click(function () {
     $(".update,.cancel").hide();
     $(".submit").show();
     bool = false;
+    
+    //function for button set click edit buuton click event
     buttonset();
-
     //form data get
     formdateget();
 
-    if ($("#terms").is(":checked")) {
+       if ($("#terms").is(":checked")) {
       var tterms = "Accept";
-    } else {
+      } else {
       var tterms = "Not Accept";
-    }
+      }
 
     index = parseInt($(".index").val());
-
     let html = `<td class="no"> ${index} </td>,
          <td class="efname"> ${ffname} </td>,
          <td class="elname"> ${llname} </td>,
@@ -229,21 +212,18 @@ $(document).ready(function () {
 
   $(document).on("click", ".cancel", function () {
     bool = false;
+    //function for button set click edit buuton click event
     buttonset();
-
     //clear text box
     $('.formreset')[0]. reset();
-
     $(".update,.cancel").hide();
     $(".submit").show();
   });
 
   //   -----------delete button------------
-
   $(document).on("click", ".deleterow", function () {
     var index = $(".deleterow").index(this);
     $(".removerow").eq(index).remove();
-
     $(".row tr").each(function (i) {
       $($(this).find("td")[0]).html(i);
     });
