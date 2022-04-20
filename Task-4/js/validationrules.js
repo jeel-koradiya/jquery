@@ -1,13 +1,32 @@
 $(document).ready(function(){
+    
+    $('#fname,#lname').keypress(function (e) {
+        var regex = new RegExp("^[a-zA-Z]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+        else
+        {
+        e.preventDefault();
+        $('.error').show();
+        $('.error').text('Please Enter Alphabate');
+        return false;
+        }
+    });
 
     $( "#dob" ).datepicker({
+
         changeMonth: true,
         changeYear: true,
         yearRange: "1930:2022",
         maxDate:"-1d"
     
-    });
+    }).on("change",function(){
+        $(this).valid();
+    })
 
+    
 $("#formvalidation").validate({
 
     ignore:[],
@@ -23,7 +42,9 @@ $("#formvalidation").validate({
             email: true
         },
         contact:{
-            required: true,
+            minlength:10,
+            maxlength:10,
+            required: true
             
         },
 
@@ -34,28 +55,38 @@ $("#formvalidation").validate({
             max:24
         },
         money:"required",
-        zipcode:"required",
-        ipaddress:"required",
+        zipcode:{
+            minlength:7,
+            maxlength:7,
+            required: true
+            
+        },
+        ipaddress:{
+            // minlength:15,
+            // maxlength:15,
+            required: true
+            
+        },
         select:"required",
         aboutyourself:"required",
+        terms:"required"
        
         
 
     },
     messages:{
-        fname:"Enter First Name",
-        lname:"Enter Last Name",
-        gender:"Select Gender",
-        email:"Enter Emailid",
-        contact:"Enter Contect No",
-        dob:"Enter Date of Birth ",
-        hour:"Enter Hour",
-        money:"Enter Money",
-        zipcode:"Enter Zipcode",
-        ipaddress:"Enter ipaddress",
-        select:"Select any one",
-        aboutyourself:"Enter about info"
-        
+        fname:"Please Enter Valid First Name",
+        lname:"Please Enter Valid Last Name",
+        gender:"Please Select Gender",
+        email:"Please Enter Valid Email-id",
+        contact:"Please Enter Valid Contect No",
+        dob:"Please Enter Valid Date of Birth ",
+        hour:"Please Enter Valid Hour(0 to 24)",
+        money:"Please Enter Valid Money(INR)",
+        zipcode:"Please Enter Valid Zipcode",
+        ipaddress:"Please Enter Valid Ip-address",
+        aboutyourself:"Please Enter about Your Information",
+        terms:"Please accept the Terms & Conditions"
         
     }
   

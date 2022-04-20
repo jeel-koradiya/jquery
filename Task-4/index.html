@@ -11,8 +11,11 @@
   <title>Wizard</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
   <script src="./js/script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.8/jquery.mask.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
   <!-- <script src="./js/masking/src/jquery.mask.js"></script>
   <script src="./js/masking/dist/jquery.mask.js"></script>
@@ -40,7 +43,7 @@
     <form action="#" class="formreset" id="formvalidation">
       <div class="content">
         <label for="fname">First name:</label>
-        <input class="setedittextfname" type="text" id="fname" name="fname" placeholder="Enter First Name" /><br />
+        <input class="setedittextfname" type="text" id="fname" name="fname" pattern="[a-zA-Z]+" placeholder="Enter First Name" /><br />
         <input type="hidden" id="index" class="index" value="" />
 
         <label for="lname">Last name:</label>
@@ -62,7 +65,7 @@
           placeholder="Enter Contact No" /><br />
 
         <label for="dob">Date of Birth:</label>
-        <input class="setedittextdob" type="text" id="dob" name="dob" placeholder="Enter Date of Birth" /><br />
+        <input class="setedittextdob" readonly type="text" id="dob" placeholder="__/__/____" name="dob" /><br />
 
         <label for="hour">For How Many Hours?:</label>
         <input class="setedittexthour" type="text" id="hour" name="hour" placeholder="hh" /><br />
@@ -93,7 +96,7 @@
           placeholder="Tell us something about you"></textarea>
         <br /><br />
 
-        <label for="terms">Terms & Condations</label>
+        <label for="terms">Terms & Conditions</label>
         <input type="checkbox" id="terms" name="terms" />
         <br /><br />
       </div>

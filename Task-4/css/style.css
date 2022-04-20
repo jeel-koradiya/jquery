@@ -25,3 +25,9 @@ table{
     text-align: center;
 }
 
+label#gender-error {
+    position: absolute;
+    right: 31.5%;
+    top: 55%;
+}
+
