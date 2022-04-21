@@ -26,8 +26,64 @@ table{
 }
 
 label#gender-error {
-    position: absolute;
-    right: 31.5%;
-    top: 55%;
+        position: absolute;
+        right: 27.5%;
+        top: 70%;
+    }
+
+label.error{
+    background-color: lightcoral;
+    color: black;
+    font-weight: 600;
+    margin-left: 10px;
+    width: auto;
 }
 
+label {
+    width: 20%;
+    text-align: right;
+    display: inline-block;
+}
+
+label#terms-error {
+    width: 23%;
+}
+
+.content {
+    width: 50%;
+    position: relative;
+    background-color: lightcoral;
+    border: 2px solid black;
+    /* width: fit-content; */
+    margin: 0 auto;
+    padding: 20px;
+    margin-bottom: 25px;
+    color: white;
+    text-align: left;
+}
+
+button.button_nav {
+    background-color: black;
+    color: white;
+    font-weight: 500;
+    padding: 3px;
+    border-radius: 2px;
+}
+
+button.next,.submit,.previous,.update,.cancel {
+    background-color: darkgray;
+    border-radius: 3px;
+    padding: 4px;
+}
+
+label.terms{
+    width: 62%;
+}
+
+label.female{
+    width: 8%;
+}
+
+label.male{
+    width: 4%;
+}

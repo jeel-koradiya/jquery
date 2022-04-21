@@ -1,4 +1,8 @@
 $(document).ready(function(){
+
+    $.validator.addMethod('IP4Checker', function(value) {
+        return value.match(/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/);
+    }, 'Invalid IP address');
     
     $('#fname,#lname').keypress(function (e) {
         var regex = new RegExp("^[a-zA-Z]+$");
@@ -26,17 +30,13 @@ $(document).ready(function(){
         $(this).valid();
     })
 
-    
 $("#formvalidation").validate({
-
     ignore:[],
-
     rules: {
         fname:"required",
         lname:"required",
         gender:{ required:true },
 
-    
         email: {
             required: true,
             email: true
@@ -45,7 +45,6 @@ $("#formvalidation").validate({
             minlength:10,
             maxlength:10,
             required: true
-            
         },
 
         dob:"required",
@@ -59,20 +58,14 @@ $("#formvalidation").validate({
             minlength:7,
             maxlength:7,
             required: true
-            
         },
         ipaddress:{
-            // minlength:15,
-            // maxlength:15,
-            required: true
-            
+            required: true,
+            IP4Checker:true
         },
         select:"required",
         aboutyourself:"required",
         terms:"required"
-       
-        
-
     },
     messages:{
         fname:"Please Enter Valid First Name",
@@ -84,11 +77,12 @@ $("#formvalidation").validate({
         hour:"Please Enter Valid Hour(0 to 24)",
         money:"Please Enter Valid Money(INR)",
         zipcode:"Please Enter Valid Zipcode",
-        ipaddress:"Please Enter Valid Ip-address",
+        ipaddress:{
+            required:"Please Enter Valid Ip-address",
+            IP4Checker:"Please Enter Valid Ip-address"
+        },
         aboutyourself:"Please Enter about Your Information",
-        terms:"Please accept the Terms & Conditions"
-        
+        terms:"Please accept the Terms & Conditions" 
     }
-  
   });
 });

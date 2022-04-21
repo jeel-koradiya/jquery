@@ -7,8 +7,10 @@ $(document).ready(function () {
   $('#hour').mask('00');
   $('#dob').mask('00/00/0000');
   $('#zipcode').mask('000-000');
-  // $('#ipaddress').mask('000.000.000.000');
   $('#money').mask('00,00,00,00,00,000',{reverse: true});
+  
+
+  
   $('#ipaddress').inputmask({
     alias: "ip",
     greedy: false,
@@ -17,18 +19,17 @@ $(document).ready(function () {
   });
 
   var bool = false;
-  // var submitbool = false;
   var formindex
   var index, indexbutton,indexerror,x, length,no,ffname,llname,ggender,eemail,ccontact,ddob,hhour,mmoney,zzipcode,iipaddress,ssports,aaboutyourself,tterms;
 
   $(".content").hide().first().show();
   $("button.previous, button.submit,.update,.cancel").hide();
+  $(".button_nav").eq(0).css("background-color","red");
 
     //click on edit butten show hide
     function buttonset() {
         if (bool == true) {
           if (length == x + 1) {
-            console.log("bool true");
             $("button.update, button.cancel").show();
             $("button.next,button.submit").hide();
           } else {
@@ -61,6 +62,10 @@ $(document).ready(function () {
     indexbutton = $(this).index();
     $(".content").hide().eq($(this).index()).show();
 
+    $(this).css("background-color","red");
+
+    $(".button_nav").css("background-color","black").eq($(this).index()).css("background-color","red");
+
     //x == index of this button
     x = $(this).index();
     length = $(".content").length;
@@ -88,14 +93,14 @@ $(document).ready(function () {
       x = 0;
     }
     if(x < 2){
-
       x++;
     }
     if (x == length - 1) {
       $("button.next").hide();
       $("button.submit").show();
     }
-
+    $(".button_nav").eq(x).css("background-color","red");
+    $(".button_nav").not($(".button_nav").eq(x)).css("background-color","black");
     $("button.previous").show();
     $(".content").eq(x).show();
     $(".content").not($(".content").eq(x)).hide();
@@ -111,6 +116,10 @@ $(document).ready(function () {
     if (x == 0) {
       $("button.previous").hide();
     }
+
+    $(".button_nav").eq(x).css("background-color","red");
+    $(".button_nav").not($(".button_nav").eq(x)).css("background-color","black");
+
     $(".content").eq(x).show();
     $(".content").not($(".content").eq(x)).hide();
     $("button.next").show();
@@ -129,7 +138,8 @@ $(document).ready(function () {
         $(".content").eq(0).show();
         $(".next").eq(0).show();
         $(".previous,.submit").hide();
-        
+        $(".button_nav").eq(0).css("background-color","red");
+    $(".button_nav").not($(".button_nav").eq(0)).css("background-color","black");
         //form data get
         formdateget();
 
@@ -138,8 +148,6 @@ $(document).ready(function () {
           } else {
           var tterms = "Not Accept";
           }
-
-        // console.log($("#formvalidation").valid());
 
         $(".row").append(`<tr class="removerow"><td class="no"> ${no} </td>,
             <td class="efname">${ffname}</td>,
@@ -158,11 +166,6 @@ $(document).ready(function () {
             <td> <button class="edit">Edit</button> </td>,
             <td> <button class="deleterow">Delete</button> </td></tr>`);
             
-        // $(".content").hide().first().show();
-        // $(".content").hide().eq($(indexbutton).index()).show();
-        // $(".previous,.submit").hide();
-        // $(".next").show();
-          
         //clear text box
         indexbutton=0,x=0;
         $('.formreset')[0].reset();
@@ -170,53 +173,37 @@ $(document).ready(function () {
 
     else
     { 
-            // var indexerror ;
-            // if($('label.error').is(':visible')){
-            // indexerror = $('label.error:visible').parent().index();
             indexerror = $(".content").has("input.error").eq(0).index();
-            console.log(indexerror+"indexerror");
             $(".content").hide();
             $(".content").has("input.error").eq(0).show();
 
-            // $(".content").not($(".content").eq(indexerror).show()).hide();
-          // }
+            $(".button_nav").eq(indexerror).css("background-color","red");
+            $(".button_nav").not($(".button_nav").eq(indexerror)).css("background-color","black");
 
+            // $(".content").not($(".content").eq(indexerror).show()).hide();
             //  indexerror = $(".error:visible").first().parents(".content").index();
             // indexerror = $(".error").first().parents(".content").index();
             // $(".content").not($(".content").eq(indexerror).show()).hide();
-
             // indexerror = $('label.error:visible').first().parent().index();
-
             // $(".content").not($(".content").eq(indexerror).show()).hide();
 
-           
-
             length = $(".content").length;
-            // console.log(length);
             formindex = $(".content").eq(indexerror).index();
-            // console.log(formindex);
             indexbutton = formindex;
             x = indexbutton;
 
             if (x==0) {
-              console.log("submitbool else if");
               $("button.update, button.cancel,button.submit,button.previous").hide();
               $("button.next").show();
             }
-
             else if (length==formindex+1) {
               $(".content").eq(length-1).show();
-              console.log("submitbool else if1");
               $("button.update, button.cancel,button.next").hide();
-              $("button.previous,button.submit").show();
-              
+              $("button.previous,button.submit").show(); 
             }
-
             else {
-              console.log("submitbool else if2");
               $("button.update, button.cancel,button.submit").hide();
-              $("button.next,button.previous").show();
-              
+              $("button.next,button.previous").show(); 
             }
     }
     e.preventDefault();
@@ -226,8 +213,9 @@ $(document).ready(function () {
   $(document).on("click", ".edit", function () {
     bool = true;
     length = $(".content").length;
-
-    $(this).parents("tr").find(".deleterow").attr("disabled", true);
+    
+    $(".deleterow").attr("disabled", false);
+    $(this).closest("tr").find("td").last().find(".deleterow").attr("disabled", true);
 
     var eindex = $(".edit").index(this);
     var index = $(".no").eq(eindex).text();
@@ -253,7 +241,6 @@ $(document).ready(function () {
     $("input.setedittextemail").val(eeemail);
     $("input.setedittextcontact").val(econtact);
     $("input.setedittextdob").val(edob);
-
     $("input.setedittexthour").val(ehour);
     $("input.setedittextmoney").val(emoney);
     $("input.setedittextzipcode").val(ezipcode);
@@ -270,27 +257,24 @@ $(document).ready(function () {
     eterms == "Accept" ? $("#terms").prop("checked", true) : $("#terms").prop("checked", false);
 
     $("#aboutyourself").val(eaboutyourself);
-    // if (eterms == " Accept ") {
-    //   $("#terms").prop("checked", true);
-    // } else {
-    //   $("#terms").prop("checked", false);
-    // }
-
+    
     //function for button set click edit buuton click event
     buttonset();
   });
 
   //   -----------update button------------
     $(".update").click(function () {
-    //form data get
-    // formdateget();
-    // console.log($("#formvalidation").valid());
-
+   
     if($("#formvalidation").valid() == true){
-      console.log("ifformvalidation");
       $(".update,.cancel").hide();
       $(".submit").show();
       bool = false;
+      $(".content").hide();
+      $(".content").eq(0).show();
+      $(".next").eq(0).show();
+      $(".previous,.submit").hide();
+      $(".button_nav").eq(0).css("background-color","red");
+      $(".button_nav").not($(".button_nav").eq(0)).css("background-color","black");
 
       //form data get
       formdateget();
@@ -320,55 +304,42 @@ $(document).ready(function () {
          <td class="eterms">${tterms}</td>,
          <td> <button class="edit">Edit</button> </td>,
          <td> <button class="deleterow">Delete</button> </td>`;
-         console.log("ifformvalidation");
-        //  console.log(index);
+
     $(".removerow")
       .eq(parseInt(index - 1))
       .html(html);
 
       buttonset();
-    //clear text box
-    $('.formreset')[0]. reset();
+      indexbutton=0,x=0;
+      //clear text box
+      $('.formreset')[0]. reset();
    }
    else{
     $(".update,.cancel").show();
     $(".submit").hide();
 
     indexerror = $(".content").has("input.error").eq(0).index();
-    console.log(indexerror+"indexerror");
     $(".content").hide();
     $(".content").has("input.error").eq(0).show();
 
+    $(".button_nav").eq(indexerror).css("background-color","red");
+    $(".button_nav").not($(".button_nav").eq(indexerror)).css("background-color","black");
+
     length = $(".content").length;
-    // console.log(length);
     formindex = $(".content").eq(indexerror).index();
-    // console.log(formindex);
     indexbutton = formindex;
     x = indexbutton;
 
-    // indexerror = $(".error").first().parents(".content").index();
-    // $(".content").not($(".content").eq(indexerror).show()).hide();
-    // length = $(".content").length;
-    // console.log(length);
-    // formindex = $(".content").eq(indexerror).index();
-    // console.log(formindex);
-    // buttonindex = formindex;
-
     if (x==0) {
-      // console.log("submitbool else if");
       $("button.update, button.cancel,button.submit,button.previous").hide();
       $("button.next").show();
     }
-
     else if (length==formindex+1) {
       $(".content").eq(length-1).show();
-      // console.log("submitbool else if1");
       $("button.submit,button.next,").hide();
       $("button.update, button.cancel,button.previous").show();
     }
-
     else {
-      // console.log("submitbool else if2");
       $("button.submit,button.update, button.cancel").hide();
       $("button.previous,button.next").show();
     }
@@ -383,9 +354,11 @@ $(document).ready(function () {
         $(".content").eq(0).show();
         $(".next").eq(0).show();
         $(".previous,.submit").hide();
-        
 
-
+        $(".button_nav").eq(0).css("background-color","red");
+        $(".button_nav").not($(".button_nav").eq(0)).css("background-color","black");
+  
+            
     bool = false;
     //function for button set click edit buuton click event
     buttonset();
@@ -400,12 +373,30 @@ $(document).ready(function () {
 
   //   -----------delete button------------
   $(document).on("click", ".deleterow", function () {
-    var index = $(".deleterow").index(this);
+
+    let text;
+    if (confirm("Are you sure want to Delete!") == true) {
+      var index = $(".deleterow").index(this);
+
+      $(".content").hide();
+      $(".content").eq(0).show();
+      $(".next").eq(0).show();
+      $(".previous,.submit").hide();
+
+      $(".button_nav").eq(0).css("background-color","red");
+      $(".button_nav").not($(".button_nav").eq(0)).css("background-color","black");
+      indexbutton=0,x=0;
     $(".removerow").eq(index).remove();
     $(".row tr").each(function (i) {
       $($(this).find("td")[0]).html(i);
     });
+    } else {
+      text = "You canceled!";
+    }
+    
+    
   });
+
 
 });
 
