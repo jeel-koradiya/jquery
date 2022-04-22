@@ -1,0 +1,74 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css");
+
+.heading {
+    width: 44%;
+    border: 1px solid black;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+.monthyearheading {
+    /* margin: 0 auto; */
+    width: 44.1%;
+    background-color: #bf822f;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  width: 100%;
+  display: table;
+}
+
+
+.left,.right,.monthyear{
+    width:33.33%;
+    text-align: center;
+    float: left;
+    vertical-align: unset;
+    color: white;
+}
+
+.left,.right{
+    padding-top: 20px;
+}
+
+table.table {
+    width: 40%;
+    margin: 0 auto;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+th{
+    padding: 30px;
+    font-weight: 900;
+}
+
+tr{
+    border: 1px solid black; 
+}
+
+td {
+    padding: 9px;
+    border: 1px solid black;
+}
+
+h1{
+    letter-spacing: 3px;
+    text-align: center;
+    color: rgba(191,130,47,255);
+}
+
+.monthyear{
+    text-align: center;
+    display: inline-block;
+}
+
+.today {
+    text-align: center;
+    background-color: #bf822f;
+    color:black;
+  }
