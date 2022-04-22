@@ -1,18 +1,14 @@
-// var cdate = new Date();
-// https://stackoverflow.com/questions/43316726/build-a-calendar-using-javascript-jquery
+var thisweekmonthday,month,datee,year;
+// thisWeekMonthDay
+var bool = 0;
 var date = new Date();
 var cmonth = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ');
 var cdaymonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-// console.log(cdate);
-// console.log(date);
-
 
 function clearcal() {
     $('h2').empty();
     $(".addtd").empty();
   }
-
-
 
 function cal() {
     var datee = date.getDate();
@@ -21,10 +17,7 @@ function cal() {
     var day = date.getDate();
     var year = date.getFullYear();
 
-    var thisweekmonthday = cdaymonth[month-1];
-    // console.log(thisweekmonthday);
-
-    // console.log(thisweekmonthday);
+    thisweekmonthday = cdaymonth[month-1];
 
     console.log("month:"+month+"  day:"+day+"  year:"+year+"  dateee:"+datee);
 
@@ -39,7 +32,6 @@ function cal() {
     if (month === 2) {
       if ((year % 100 !== 0) && (year % 4 === 0) || (year % 400 === 0)) {
         thisweekmonthday = 29;
-        console.log(thisweekmonthday);
       }
     }
 
@@ -54,14 +46,19 @@ function cal() {
        
         if(parseInt(thisweekmonthday) == new_count)
         {
-          break;
+          // break;
+          $(".addtd").append(`<td></td>`);
         }
         else if(count>startprint)
         {
           new_count++;
-          if(new_count==currentdatecolor.getDate() && date.getMonth() == currentdatecolor.getMonth())
+          if(new_count==currentdatecolor.getDate() && date.getMonth() == currentdatecolor.getMonth() && date.getFullYear() == currentdatecolor.getFullYear())
           {
             $(".addtd").append(`<td class="today">${new_count}</td>`);
+          }
+          else if(bool == new_count){
+            $(".addtd").append(`<td class="selectdatecolor">${new_count}</td>`);
+          
           }
           else
           {
@@ -78,18 +75,23 @@ function cal() {
 function prev() {
     date.setMonth(date.getMonth() - 1); 
     clearcal();
+    bool = 0;
     cal();
   }
 
-function next(mm) {
+function next() {
     date.setMonth(date.getMonth() + 1); 
     clearcal();
+    bool = 0;
+    cal(); 
+}
+
+function clicktoday(){
+    date = new Date();
+    clearcal();
+    bool = 0;
     cal();
-  }
-
-
-
-
+}
 
 $(document).ready(function () {
 
@@ -100,6 +102,42 @@ $(document).ready(function () {
       $('.next').click(function() {
         next();
       });
-         
-      cal();
+
+      $('.clicktoday').click(function() {
+        clicktoday();
+      });
+      
+     
+      for(y=1970;y<=2070;y++){
+        $("#selectyear").append(`<option value="${y}">${y}</option>`);
+      }
+
+      for (let m = 0; m < 12; m++) {
+        $("#selectmonth").append(`<option value="${m + 1}">${cmonth[m]}</option>`);
+      }
+
+      $("#selectyear, #selectmonth").change(function () {
+    
+        $("#selectdate").empty();
+        $("#selectdate").append(`<option value="">Date</option>`);
+        var totaldayinmonth = new Date($("#selectyear").val(),$("#selectmonth").val(),0).getDate();
+        for (var i = 1; i <= totaldayinmonth; i++) {
+          $("#selectdate").append(`<option value="${i}">${i}</option>`);
+        }                     
+      
+      });
+
+      $('.finddate').click(function() {
+
+        var fyear = $("#selectyear").children("option:selected").val();
+        var fmonth = $("#selectmonth").children("option:selected").val();
+        var fdate = $("#selectdate").children("option:selected").val();
+
+          var finddateandshow = new Date(fyear,fmonth-1);
+          date = finddateandshow;
+          bool = fdate;
+          clearcal();
+          cal();
+      });
+    cal();
 });

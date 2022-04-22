@@ -15,23 +15,22 @@
 
 <body>
   <div class="heading">
-  <h1>CALENDER</h1>
-</div>
+    <h1>CALENDER</h1>
+  </div>
   <div class="container">
     <div class="monthyearheading clearfix">
-    <!-- <i class="prev fa-caret-square-o-left fa-3x" aria-hidden="true"></i> -->
-    <div class="left">
-    <i class="prev fa fa-caret-square-o-left fa-2x" 
-    aria-hidden="true"></i>
-  </div>
-    <div class="monthyear">
-      <h2></h2>
+      <!-- <i class="prev fa-caret-square-o-left fa-3x" aria-hidden="true"></i> -->
+      <div class="left">
+        <i class="prev fa fa-caret-square-o-left fa-2x" aria-hidden="true"></i>
+      </div>
+      <div class="monthyear">
+        <h2></h2>
+      </div>
+      <div class="right">
+        <i class="next fa fa-caret-square-o-right fa-2x" aria-hidden="true"></i>
+      </div>
     </div>
-    <div class="right">
-    <i class="next fa fa-caret-square-o-right fa-2x" aria-hidden="true"></i>
-  </div>
-  </div>
-    <table class="table" border="1">
+    <table class="table">
       <tr>
         <th>SUN</th>
         <th>MON</th>
@@ -42,10 +41,28 @@
         <th>SAT</th>
       </tr>
       <tbody class="addtd">
-        
       </tbody>
     </table>
   </div>
+
+  <div class="allbuttonfun">
+      <input type="button" class="clicktoday" value="Today"/>
+     
+      <select id='selectyear'>
+        <!-- <option value=''>Year</option> -->
+      </select>
+
+      <select id='selectmonth'>
+        <!-- <option value=''>Month</option> -->
+      </select> 
+
+      <select id='selectdate'>
+        <option value=''>Date</option>
+      </select>
   
+      <input type="button" class="finddate" value="Find Date"/>
+  </div>
+
 </body>
+
 </html>
