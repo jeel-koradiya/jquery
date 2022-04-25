@@ -1,0 +1,32 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css");
+
+h2{
+    text-align: center;
+}
+
+.calculatordesign{
+    width: 40%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+input[type="text"]{
+    width: 96%;
+    
+    padding: 10px;
+
+}
+
+table{
+    border: none;
+}
+
+button {
+    width: 82px;
+    height: 50px;
+}
+
+.mearg button{
+    width: 167px;
+}
