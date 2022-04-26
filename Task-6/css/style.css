@@ -19,14 +19,17 @@ input[type="text"]{
 }
 
 table{
+    width: 104%;
     border: none;
 }
 
 button {
-    width: 82px;
+    width: 100%;
+    max-width: 82px;
     height: 50px;
 }
 
 .mearg button{
-    width: 167px;
+    max-width: 183px;
 }
+
