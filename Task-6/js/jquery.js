@@ -1,22 +1,38 @@
 $(document).ready(function(){
 
+   var index;
+
     $(".form_exp").keypress(function(event){
     event.preventDefault();
     });
 
+    //Find Index for Click & keyup events
+   //  $(".form_exp").on("keyup click", function(event){
+   //    index = event.target.selectionStart;
+   //    console.log(index);
+   //  });
+    
     // All Clear
     $("#allClear").click(function() {
         $(".form_exp").val("");
-        $(".form_exp").focus();
+        
     });
 
     // Backspace
     $('#backspace').click(function() {
-        var valuebackspace = $(".form_exp").val();
-        if (!(parseInt(parseFloat(valuebackspace)) == 0 && valuebackspace.length == 1))
-            $(".form_exp").val(valuebackspace.slice(0, valuebackspace.length - 1));
-        if (valuebackspace.length == 1)
-            $(".form_exp").val("");
+
+      var valuebackspace = $(".form_exp").val();
+      if (!(parseInt(parseFloat(valuebackspace)) == 0 && valuebackspace.length == 1))
+          $(".form_exp").val(valuebackspace.slice(0, valuebackspace.length - 1));
+      if (valuebackspace.length == 1)
+          $(".form_exp").val("");
+
+      // var l = $(".form_exp").val().length;
+      // a= $(".form_exp").val().substring(0,index-1);
+      // b= $(".form_exp").val().substring(index,l);
+      // console.log("a:"+a);
+      // console.log("b:"+b);
+      // $(".form_exp").val(a+b);
     });
 
     //Value Fatch
@@ -59,17 +75,9 @@ $(document).ready(function(){
 // keypress code
 $(document).on('keydown', function(event) {
 
-  // if ((event.which < 0 || event.which > 57) && (event.which == 116) && (event.which < 95 || event.which > 111) && (event.which !== 13)) {
-  //   this.location.reload()
-  //   return false;
-  // }
    if(event.keyCode == '8'){
     event.preventDefault();
-    var valuebackspace = $(".form_exp").val();
-    if (!(parseInt(parseFloat(valuebackspace)) == 0 && valuebackspace.length == 1))
-        $(".form_exp").val(valuebackspace.slice(0, valuebackspace.length-1));
-    if (valuebackspace.length == 1)
-        $(".form_exp").val("");
+        $("#backspace").trigger("click");
   } else {
      var value = $(".form_exp").val();
      if(event.keyCode  == '13'){
@@ -136,12 +144,8 @@ $(document).on('keydown', function(event) {
         $(".form_exp").val(value+'÷');
      }
      else if(event.keyCode == '8'){
-        var valuebackspace = $(".form_exp").val();
-        if (!(parseInt(parseFloat(valuebackspace)) == 0 && valuebackspace.length == 1))
-            $(".form_exp").val(valuebackspace.slice(0, valuebackspace.length - 1));
-        if (valuebackspace.length == 1)
-            $(".form_exp").val("");
-        }
+        $("#backspace").trigger("click");
+      }
     else if(event.keyCode == '110' || event.keyCode == '190'){
         $(".form_exp").val(value+'.');
     }
