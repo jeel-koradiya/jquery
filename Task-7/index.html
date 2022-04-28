@@ -8,49 +8,61 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Add More</title>
+  <!-- jquery lib -->
   <script src="./js/script.js"></script>
+
+  <!-- bootstrap lib -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+    crossorigin="anonymous"></script>
+
+  <!-- bootstrap lib -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+  <!-- bootbox lib -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
+
+  <!-- popper lib -->
+  <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+
+  <!--  myjquery code -->
   <script src="./js/jquery.js"></script>
+
+  <!--  mystyle.css -->
   <link rel="stylesheet" href="./css/style.css" />
 </head>
+
 <body>
-    <div class="mainbox clearfix">
+  <div class="mainbox clearfix">
 
-      <div class="w50 fl">
+    <div class="w50 fl">
 
-        <div class="addmorestyle">
-          <button type="button" class="addmore">Add More</button>
-        </div>
+      <div class="addmorestyle">
+        <button type="button" class="addmore">Add More</button>
+      </div>
 
-        <div class="addmoreaddboxmain">
-
+      <div class="addmoreaddboxmain">
         <div class="addmoreadd addmoreaddstyle">
           <input type="text" class="tabletitle" placeholder="Title">
           <button type="button" class="addchild addchildstyle">Add Child</button>
-          <button type="button" class="addsubmit addsubmitstyle">Add Submit</button>
+          <button type="button" class="addsubmit addsubmitstyle">Submit</button>
           <button type="button" class="addmoredelete adddeletestyle">Delete</button>
 
+          <div class="addchildforaddingstyle">
+            <input class="subtitle" type="text" placeholder="SubTitle">
+            <input class="value" type="text" placeholder="Value">
+            <button type="button" class="deletechild adddeletestyle">Delete</button>
+          </div>
+          
         </div>
 
-      </div>    
-      </div>
-      <div class="right w50 fl">
-        <h3>SPECIFICATION</h3>
-        <div class="showtable">
-        <!-- <table border="1">
-          <tr>
-            <td colspan="2">FirstBox</td>
-          </tr>
-          <tr>
-            <td>sub1</td>
-            <td>50</td>
-          </tr>
-          <tr>
-            <td>sub2</td>
-            <td>Notsure</td>
-          </tr>
-        </table> -->
-      </div>
       </div>
     </div>
+    <div class="right w50 fl">
+      <h3>SPECIFICATION</h3>
+      <div class="showtable"></div>
+    </div>
+  </div>
 </body>
 </html>
