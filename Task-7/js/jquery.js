@@ -2,16 +2,16 @@ var trlength;
 $(document).ready(function(){
 
   $(".showtable").append(`
-  <table id="0" class="deleteleftrightside table-bordered" border="1">
-    <thead>
-      <tr>
-        
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>`);
+    <table id="0" class="deleteleftrightside table-bordered" border="1">
+      <thead>
+        <tr>
+          
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>`);
 
-    //add parent
+    //Add More Button with confirm box
     $(".addmore").click(function(){
 
       bootbox.confirm({ 
@@ -27,55 +27,38 @@ $(document).ready(function(){
           }
       },
         callback: function(result){
-
           if(result==true){
             var addmoreindex = $(".addmore").index(this);
-            console.log("addmore-index: "+addmoreindex);
-      
-              $(".addmoreaddboxmain").append(`<div class="addmoreadd addmoreaddstyle"><input type="text" class="tabletitle" placeholder="Title">
+
+              $(".addmoreaddboxmain").append(`<div class="addmoreadd addmoreaddstyle">
+              <input type="text" class="tabletitle" placeholder="Title">
               <button type="button" class="addchild addchildstyle">Add Child</button>
               <button type="button" class="addsubmit addsubmitstyle">Submit</button>
               <button type="button" class="addmoredelete adddeletestyle">Delete</button> </div> `);
       
-      
               $(".showtable").append(`
               <table id="${addmoreindex}" class="deleteleftrightside table-bordered" border="1">
-                <thead>
-                  <tr>
-                    
-                  </tr>
-                </thead>
+                <thead> <tr></tr> </thead>
                 <tbody></tbody>
               </table>`);
           }
         }
     })
-
-
-  
-      
-  
-    });
-
+  });
 });
 
 
 
-//table
+//Submit Button
 $(document).on("click", ".addsubmit",function()
   {
     var addsubmitindex = $(".addsubmit").index(this);
-    console.log("submit-index: "+addsubmitindex);
-
     var trlength = $(this).parents(".addmoreadd").find(".addchildforaddingstyle").length;
-    console.log("trlength :"+trlength);
-    
     var tabletitle = $(".tabletitle").eq(addsubmitindex).val();
-    console.log(tabletitle);
 
-    $(this).parents().find(`table`).eq(addsubmitindex).find("th").remove();
-    $(this).parents().find(`table`).eq(addsubmitindex).find("tbody").empty();
-    $(this).parents().find(`table thead tr`).eq(addsubmitindex).append(`<th colspan="2">${tabletitle}</th>`);
+    $("table").eq(addsubmitindex).find("th").remove();
+    $("table").eq(addsubmitindex).find("tbody").empty();
+    $("table thead tr").eq(addsubmitindex).append(`<th colspan="2">${tabletitle}</th>`);
     
     for(i=0;i<trlength;i++){
       var subtitle = $(this).parents(".addmoreadd").find(".subtitle").eq(i).val();
@@ -89,7 +72,7 @@ $(document).on("click", ".addsubmit",function()
     }
 });
 
-//add child
+//Add-Child Button with confirm box
 $(document).on("click", ".addchild",function()
   {
     var addchildbtnindex = this;
@@ -108,21 +91,20 @@ $(document).on("click", ".addchild",function()
       callback: function(result){
 
         if(result==true){
-                var addchildindex = $(".addchild").index(addchildbtnindex);
-          // console.log(addchildindex);
+          var addchildindex = $(".addchild").index(addchildbtnindex);
+          
           $(".addmoreadd").eq(addchildindex).append(`<div class="addchildforaddingstyle">
           <input class="subtitle" type="text" placeholder="SubTitle">
           <input class="value" type="text" placeholder="Value">
           <button type="button" class="deletechild adddeletestyle">Delete</button>
-        </div>`);
+          </div>`);
         }
       }
     });
     
 });
-
-       
-//parent delete
+     
+//Parent Delete Button with confirm box
 $(document).on("click", ".addmoredelete",function(){
   var addmoredeleteindex = this;
   bootbox.confirm({ 
@@ -138,19 +120,16 @@ $(document).on("click", ".addmoredelete",function(){
       }
   },
     callback: function(result){
-
       if(result==true){
         var addmoredelete = $(".addmoredelete").index(addmoredeleteindex);
-        // console.log("addmoredelete:"+addmoredelete);
         $(".deleteleftrightside").eq(addmoredelete).remove();
         $(".addmoreadd").eq(addmoredelete).remove();
       }
     }
   });
-   
 });
 
-//child delete
+//Child Delete Button with confirm box
 $(document).on("click", ".deletechild",function(){
 
   var addmoredeleteindex = this;
@@ -167,17 +146,10 @@ $(document).on("click", ".deletechild",function(){
       }
   },
     callback: function(result){
-
       if(result==true){
         var deletechildindex = $(".deletechild").index(addmoredeleteindex);
-        // console.log("deletechildindex:"+deletechildindex);
         $(".addchildforaddingstyle").eq(deletechildindex).remove();
       }
     }
   });
 });
-
-
-
-
-
