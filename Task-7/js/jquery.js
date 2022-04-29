@@ -1,7 +1,7 @@
 var trlength;
 $(document).ready(function(){
 
-  $(".showtable").append(`
+    $(".showtable").append(`
     <table id="0" class="deleteleftrightside table-bordered" border="1">
       <thead>
         <tr>
@@ -64,7 +64,7 @@ $(document).on("click", ".addsubmit",function()
       var subtitle = $(this).parents(".addmoreadd").find(".subtitle").eq(i).val();
       var value = $(this).parents(".addmoreadd").find(".value").eq(i).val();
       console.log(subtitle,value);
-      $(this).parents().find(`table`).eq(addsubmitindex).find("tbody").append(`
+      $(this).parents().find("table").eq(addsubmitindex).find("tbody").append(`
           <tr class="tabledelete">
             <td>${subtitle}</td>
             <td>${value}</td>
