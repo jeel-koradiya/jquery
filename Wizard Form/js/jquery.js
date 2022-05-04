@@ -288,6 +288,7 @@ $(document).ready(function () {
       $(".deleterow").attr("disabled", false);
     
     index = parseInt($(".index").val());
+    console.log("i"+index);
     let html = `<td class="no">${index}</td>,
          <td class="efname">${ffname}</td>,
          <td class="elname">${llname}</td>,

@@ -1,0 +1,200 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css");
+* {
+    box-sizing: border-box;
+}
+
+body {
+    
+    margin: 0;
+    padding: 0;
+
+}
+
+.w100 {
+    width: 100%;
+}
+
+.w50 {
+    width: 45%;
+}
+
+.fl {
+    float: left;
+}
+
+.clearfix:before,
+.clearfix:after {
+    width: 100%;
+    display: table;
+    content: "";
+}
+
+.front{
+    background-color: white;
+}
+
+
+.back{
+    background-color: red;
+}
+
+.front,.back{
+    
+    width: 556px;
+    text-align: center;
+    height: 241px;
+    border: 1px solid black;
+}
+
+.export{
+    background-color: white;
+}
+
+.qr-code {
+	max-width: 200px;
+	margin: 10px;
+	}
+
+    .mainbox{
+        padding-top: 5px;
+    }
+
+    .secondbox{
+        border: 1px solid black;
+        height: 610px;
+        margin: 0 20px;
+    }
+    .mainfront.fl {
+        padding-left: 10px;
+    }
+
+    .mainback.fl {
+        padding-left: 10px;
+    }
+
+    .formstyle{
+        padding: 10px 0 0 15px;
+    }
+
+    .drbutton {
+        float: right;
+        padding-right: 499px;
+        padding-top: 10px;
+    }
+
+    .front,.back {
+        position: relative;
+    }
+
+    .icon {
+        position: absolute;
+        top: 22px;
+        right: 20px;
+    }
+
+    .rect {
+        height: 20px;
+        width: 100%;
+        background-color: red;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .rect1 {
+        height: 20px;
+        width: 100%;
+        background-color: red;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .logohide {
+        position: absolute;
+        top: 21px;
+        left: 77px;
+    }
+
+    .logohidestandard {
+        position: absolute;
+        top: 183px;
+        left: 205px;
+    }
+
+    button.button {
+        width: 32%;
+        border: none;
+        padding: 11px;
+    }
+
+    button.colorreset {
+        margin-left: 22px;
+        margin-top: 10px;
+    }
+
+
+label {
+    padding-bottom: 12px;
+    width: 20%;
+    text-align: right;
+    display: inline-block;
+}
+
+.creat{
+    width: 30%;
+}
+
+.select{
+    width: 30%;
+}
+
+label.clean,label.standard,.select {
+    width: auto;
+}
+
+.leftside.w50.fl {
+    vertical-align: middle;
+    padding-top: 69px;
+}
+
+.leftside.w50.fl::after {
+    height: 152px;
+    width: 2px;
+    background-color: brown;
+    content: '';
+    position: absolute;
+    top: 43px;
+    left: 246px;
+}
+
+.companynamehide{
+    margin-top: 0px;
+    padding-left: 13px;
+}
+
+.rightside.w50.fl {
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 42px;
+}
+
+.rightside h4{
+    margin: 10px;
+}
+
+h4.fullname {
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+h4.designationname {
+    margin: 0;
+    padding: 2px 10px 20px;
+    font-size: 14px;
+    font-style: italic;
+}
+
+
+
+ 
+     

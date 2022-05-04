@@ -9,6 +9,7 @@ $(document).ready(function () {
 
       $(".panelstyle").eq(index).slideToggle(function () {
           if ($(this).css("display") == "none") {
+            console.log("hello");
             $(this).prev().find("i").css("transform", "rotate(0deg)");
           }
         });

@@ -38,6 +38,7 @@ $(document).ready(function(){
     //Value Fatch
     $(".clickbutton").click(function(){
         var value = $(this).val();
+      
         var t = eval($(".form_exp").val($('.form_exp').val()+ value)); 
     });
 
