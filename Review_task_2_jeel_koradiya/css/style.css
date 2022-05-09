@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  
+  margin: 0;
+  padding: 0;
+  
+}
+
+.w50 {
+  width: 50%;
+}
+
+.fl {
+  float: left;
+}
+
+.clearfix:before,
+.clearfix:after {
+  width: 100%;
+  display: table;
+  content: "";
+}
+
+h1{
+  text-align: center;
+}
+
+.lsn{
+  list-style: none;
+  display: inline-block;
+}
+
+
