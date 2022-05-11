@@ -70,7 +70,7 @@ $(document).ready(function(){
         gettext = $(this).closest("li").attr("data-text");
         $("#inputValue").val(gettext);
 
-        $('.edit').prop('disabled', true);
+        $('.edit,.remove').prop('disabled', true);
 
         $("#update").show();
         $("#add").hide();
@@ -88,7 +88,7 @@ $(document).ready(function(){
         targetEle.find(">p").text(inputVal);
         $(`option[value='${dataidvalue}']`).text(inputVal);
 
-        $('.edit').prop('disabled', false);
+        $('.edit,.remove').prop('disabled', false);
 
         $("#update").hide();
         $("#add").show();
