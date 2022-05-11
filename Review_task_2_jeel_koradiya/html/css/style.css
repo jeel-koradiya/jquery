@@ -1,0 +1,76 @@
+/* Fonts & Icons */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
+/* @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css') */
+
+/* Global Declarations */
+
+* {
+    box-sizing: border-box;
+}
+
+.clearfix:before,
+.clearfix:after {
+    width: 100%;
+    display: table;
+    content: '';
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.w50 {
+    width: 50%;
+}
+
+.w100 {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.left-part{
+    padding-left: 25px;
+}
+
+select,input{
+    margin-bottom: 10px;
+}
+
+select,input{
+    width: 100%;
+    max-width: 51%;
+}
+
+p{
+    margin: 0;
+}
+
+.left-part {
+    padding-left: 130px;
+    padding-top: 25px;
+}
+
+ul {
+    padding-top: 10px;
+}
+
+.edit{
+    margin: 8px 8px 8px 0px;
+}
+
+
