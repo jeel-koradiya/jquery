@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  
+  margin: 0;
+  padding: 0;
+  
+}
+
+.w50 {
+  width: 50%;
+}
+
+.fl {
+  float: left;
+}
+
+.clearfix:before,
+.clearfix:after {
+  width: 100%;
+  display: table;
+  content: "";
+}
+
+h1{
+  text-align: center;
+}
+
+button {
+  width: 45px;
+  height: 45px;
+}
+
+.container{
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+table{
+  margin: 0 auto;
+}
+
+.green{
+  background-color: lightseagreen;
+}
+
+.pink{
+  background-color: pink;
+}
+
+button.refresh {
+  width: 64px;
+  position: absolute;
+  top: 63px;
+  right: 33%;
+}
+
+body{
+  position: relative;
+}
+
